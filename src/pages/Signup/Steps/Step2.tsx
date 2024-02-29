@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import data from "../../../components/countryCity/countryCity.json";
 import Select from "react-select";
 import { selectStyles } from "../../../components/common/style";
-import { CountryData, Step2Props } from "../../../components/interface/interface";
+import {
+  CountryData,
+  Step2Props,
+} from "../../../components/interface/interface";
 import { Signup } from "../../../components/enum/enums";
-
 
 const Step2: React.FC<Step2Props> = ({
   formData,
@@ -57,27 +59,26 @@ const Step2: React.FC<Step2Props> = ({
     (option) => option.value === selectedCountry
   );
   const cityValue = formData.city
-  ? { value: formData.city, label: formData.city }
-  : null;
-  
+    ? { value: formData.city, label: formData.city }
+    : null;
+
   return (
     <div className="step2-container">
-      <Select
-        value={countryValue}
-        onChange={handleCountryChange}
-        options={countryOptions}
-        placeholder={Signup.YOUR_COUNTRY}
-        styles={selectStyles}
-      />
-
-      <Select
-        value={cityValue}
-        onChange={handleCityChange}
-        options={cities.map((city) => ({ value: city, label: city }))}
-        placeholder={selectedCountry ? Signup.SELECT_REGION : Signup.NO_CITY}
-        isDisabled={!selectedCountry}
-        styles={selectStyles}
-      />
+        <Select
+          value={countryValue}
+          onChange={handleCountryChange}
+          options={countryOptions}
+          placeholder={Signup.YOUR_COUNTRY}
+          styles={selectStyles}
+        />
+        <Select
+          value={cityValue}
+          onChange={handleCityChange}
+          options={cities.map((city) => ({ value: city, label: city }))}
+          placeholder={selectedCountry ? Signup.SELECT_REGION : Signup.NO_CITY}
+          isDisabled={!selectedCountry}
+          styles={selectStyles}
+        />
     </div>
   );
 };

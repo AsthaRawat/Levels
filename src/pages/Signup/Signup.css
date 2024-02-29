@@ -211,3 +211,10 @@
   margin-bottom: 20px;
 }
 
+.css-1nmdiq5-menu{
+  background-color: #1e1f2a !important;
+  min-height: 5rem;
+  position: absolute !important;
+  top: 2rem !important;
+  border-radius: 10px !important;
+}
