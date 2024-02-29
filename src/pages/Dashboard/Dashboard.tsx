@@ -6,13 +6,18 @@ import PageNotFound from "../ PageNotFound/PageNotFound";
 
 const Dashboard = () => {
   const { state } = useLocation();
-  const { formData } = state || {};
-  const { email, userName, country, city, avatar, tradingStyle, tradingExp } =
-    formData || {};
+  const { storedData } = state || {};
+  let userData;
 
-  if (!formData) {
-    return <PageNotFound/>
+  if (!storedData || !Array.isArray(storedData) || storedData.length === 0) {
+    return <PageNotFound />;
+  } else if (storedData.length === 1) {
+    userData = storedData[0];
+  } else {
+    userData = storedData[storedData.length - 1];
   }
+
+  const { email, userName, country, city, avatar, tradingStyle, tradingExp } = userData;
 
   return (
     <div className="dashboard-container">
@@ -20,9 +25,9 @@ const Dashboard = () => {
         <div className="heading">
           <h1>Hi!! {userName}</h1>
           {avatar ? (
-            <img src={avatar} alt="profile" width="120"/>
+            <img src={avatar} alt="profile" width="120" />
           ) : (
-            <ProfileIcon/>
+            <ProfileIcon />
           )}
         </div>
         <div className="dashboard-details">

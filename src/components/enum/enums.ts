@@ -15,3 +15,8 @@ export enum Signup {
   WELCOME = "Welcome to Levels",
   ERROR="Alias already taken"
 }
+
+export enum Login_Constants {
+  INVALID_EMAIL="Invalid email. Please enter a valid email address.",
+  INVALID_USER="User not found"
+}

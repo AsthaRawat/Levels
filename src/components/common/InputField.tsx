@@ -1,6 +1,6 @@
 // InputField.tsx
 import React, { useState } from "react";
-import { validateEmail, validateName } from "../validation/Validation";
+import { validateEmail } from "../validation/Validation";
 
 interface InputFieldProps {
   type: string;
@@ -27,7 +27,7 @@ const InputField: React.FC<InputFieldProps> = ({
       setIsValid(validateEmail(inputValue));
     }
     if (type === "name") {
-      setIsValid(validateName(inputValue));
+      setIsValid(!!(inputValue));
     }
     onChange(e);
     onValidityChange(isValid); // Notify parent component about input validity

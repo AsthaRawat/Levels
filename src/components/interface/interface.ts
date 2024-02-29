@@ -48,8 +48,9 @@ export interface StepRendererProps {
 }
 
 export interface ToasterProps {
-  currentStep: number;
-  isChecked: boolean;
+  currentStep?: number;
+  isChecked?: boolean;
+  validUser?:boolean;
 }
 
 export interface Step1Props {

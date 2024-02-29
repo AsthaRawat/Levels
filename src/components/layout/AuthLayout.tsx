@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../../assets/icons/logo";
-import { validateEmail, validateName } from "../validation/Validation";
+import { validateEmail } from "../validation/Validation";
 import BackArrow from "../../assets/icons/backArrow";
 import {
   StepRenderer,
@@ -40,7 +40,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
       const storedData = JSON.parse(sessionStorage.getItem("formData") || "[]");
       const updatedData = [...storedData, formData];
       sessionStorage.setItem("formData", JSON.stringify(updatedData));
-      navigate("/dashboard", {
+      navigate("/login", {
         state: {
           formData: formData,
         },
@@ -57,11 +57,9 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
     setIsBoxChecked(checked);
   };
 
-
   useEffect(() => {
     setCheckInput(
-      formData.name !== "" &&
-        validateName(formData.name) &&
+      formData.name !== ""  &&
         formData.email !== "" &&
         validateEmail(formData.email)
     );
@@ -105,8 +103,18 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
               <span className="label-tc">
                 <label>
                   <div>
-                    Accept <span><a href="/terms-condition"  className="link">T&C</a></span> and{' '}
-                    <span><a className="link" href="/privacy-policy">Privacy Policy</a></span>
+                    Accept{" "}
+                    <span>
+                      <a href="/terms-condition" className="link">
+                        T&C
+                      </a>
+                    </span>{" "}
+                    and{" "}
+                    <span>
+                      <a className="link" href="/privacy-policy">
+                        Privacy Policy
+                      </a>
+                    </span>
                   </div>
                   <input type="checkbox" onChange={handleCheckboxChange} />
                   <span className="checkbox"></span>
@@ -149,7 +157,11 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
             {(currentStep === 1 || currentStep === 2 || currentStep === 3) && (
               <p className="auth-toggle-text">
                 <span> Have an account? </span>
-                <span className="link"> Login</span>
+                <span>
+                  <a href="/login" className="link">
+                    Login
+                  </a>
+                </span>
               </p>
             )}
             {currentStep === 4 && (

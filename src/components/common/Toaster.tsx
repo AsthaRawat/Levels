@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
 import ErrorIcon from "../../assets/icons/errorIcon";
 import { ToasterProps } from "../interface/interface";
-import { Signup } from "../enum/enums";
+import { Login_Constants, Signup } from "../enum/enums";
 
-const Toaster: React.FC<ToasterProps> = ({ currentStep, isChecked }) => {
+const Toaster: React.FC<ToasterProps> = ({
+  currentStep,
+  isChecked,
+  validUser,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
-    if (isChecked) {
+    if (isChecked || validUser) {
       setIsVisible(true);
+        const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 2000);
+        return () => clearTimeout(timer);
     }
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [isChecked]);
+  }, [isChecked, validUser]);
+  
   return (
     <div>
-      {currentStep === 3 && isVisible && (
+      {((currentStep === 3 && isVisible) || validUser) && (
         <div className="toaster">
           <div className="toast-message">
             <ErrorIcon />
-            <span>{Signup.ERROR}</span>
+            <span>{validUser ? Login_Constants.INVALID_USER :Signup.ERROR}</span>
           </div>
         </div>
       )}
