@@ -57,6 +57,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
     setIsBoxChecked(checked);
   };
 
+
   useEffect(() => {
     setCheckInput(
       formData.name !== "" &&
