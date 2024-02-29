@@ -235,6 +235,7 @@
   white-space: nowrap;
   color: #f9fd02;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .step2-container {

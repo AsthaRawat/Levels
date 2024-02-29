@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import clsx from "clsx";
 import { Step4Props } from "../../../components/interface/interface";
+import { Signup } from "../../../components/enum/enums";
 
 
 const Step4: React.FC<Step4Props> = ({
@@ -15,7 +16,7 @@ const Step4: React.FC<Step4Props> = ({
   };
 
   useEffect(() => {
-    setButtonText?.("Next")
+    setButtonText?.(Signup.NEXT)
   }, [setButtonText]);
   
   return (
@@ -29,7 +30,7 @@ const Step4: React.FC<Step4Props> = ({
     </center>
       <input
         type="text"
-        placeholder="Token"
+        placeholder={Signup.TOKEN}
         className="input-field"
         value={formData.token}
         onChange={handleTokenChange}

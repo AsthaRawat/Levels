@@ -1,4 +1,4 @@
-import React from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface ImageProps {
   src: string;
@@ -32,18 +32,18 @@ export interface Data {
 }
 
 export interface AuthLayoutProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 export interface StepRendererProps {
   currentStep: number;
   formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: Dispatch<SetStateAction<Data>>;
   isChecked: boolean;
-  setButtonText: React.Dispatch<React.SetStateAction<string>>;
-  setButtonClass: React.Dispatch<React.SetStateAction<string>>;
-  setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsBoxChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  setButtonText: Dispatch<SetStateAction<string>>;
+  setButtonClass: Dispatch<SetStateAction<string>>;
+  setIsChecked: Dispatch<SetStateAction<boolean>>;
+  setIsBoxChecked: Dispatch<SetStateAction<boolean>>;
   isBoxChecked: boolean;
 }
 
@@ -54,11 +54,11 @@ export interface ToasterProps {
 
 export interface Step1Props {
   formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
-  setButtonText: React.Dispatch<React.SetStateAction<string>>;
-  setButtonClass: React.Dispatch<React.SetStateAction<string>>;
+  setFormData: Dispatch<SetStateAction<any>>;
+  setButtonText: Dispatch<SetStateAction<string>>;
+  setButtonClass: Dispatch<SetStateAction<string>>;
   isBoxChecked: boolean;
-  setIsBoxChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsBoxChecked: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface CountryData {
@@ -67,20 +67,20 @@ export interface CountryData {
 
 export interface Step2Props {
   formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
-  setButtonText?: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: Dispatch<SetStateAction<any>>;
+  setButtonText?: Dispatch<SetStateAction<string>>;
 }
 
 export interface Step3Props {
   formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
-  setButtonText?: React.Dispatch<React.SetStateAction<string>>;
-  setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  setFormData: Dispatch<SetStateAction<any>>;
+  setButtonText?: Dispatch<SetStateAction<string>>;
+  setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface Step4Props {
   formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
-  setButtonText?: React.Dispatch<React.SetStateAction<any>>;
-  setButtonClass: React.Dispatch<React.SetStateAction<any>>;
+  setFormData: Dispatch<SetStateAction<any>>;
+  setButtonText?: Dispatch<SetStateAction<string>>;
+  setButtonClass: Dispatch<SetStateAction<string>>;
 }

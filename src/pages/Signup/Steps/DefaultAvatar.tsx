@@ -4,9 +4,10 @@ import ImageWithClick from "./ImageWithClick";
 import ReactModal from "react-modal";
 import { customStyles } from "./Modal";
 import {avatars} from "../../../components/common/Common";
+import { Signup } from "../../../components/enum/enums";
 
 const DefaultAvatar: React.FC<{
-  closeAvatarModal: () => void; // Removed unnecessary argument
+  closeAvatarModal: () => void; 
   setShowSelectedAvatar: React.Dispatch<React.SetStateAction<boolean>>;
   SetAvatarImg: React.Dispatch<React.SetStateAction<string>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -44,12 +45,12 @@ const onSaveImg = async (imgUrl: string) => {
         setOpen(false);
         setFormData({ ...formData, avatar: base64String });
       } else {
-        console.error("Failed to convert image to base64.");
+        console.error(Signup.CANNOT_CONVERT_TO_BASE64);
       }
     };
     reader.readAsDataURL(blob);
   } catch (error) {
-    console.error("Error fetching image:", error);
+    console.error(error);
   }
 };
   return (

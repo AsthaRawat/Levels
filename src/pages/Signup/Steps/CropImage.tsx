@@ -1,5 +1,5 @@
-import React, { RefObject, useRef, useState } from "react";
-import ReactCrop, { Crop, PixelCrop, PercentCrop } from "react-image-crop";
+import React, {  useRef, useState } from "react";
+import ReactCrop, { Crop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
 interface CropImageProps {

@@ -7,6 +7,7 @@ import { options, trading_experience } from "../../../components/common/Common";
 import DefaultAvatar from "./DefaultAvatar";
 import CropImage from "./CropImage";
 import { Step3Props } from "../../../components/interface/interface";
+import { Signup } from "../../../components/enum/enums";
 
 const Step3: React.FC<Step3Props> = ({
   formData,
@@ -184,14 +185,14 @@ const Step3: React.FC<Step3Props> = ({
           value={formData.tradingStyle ? formData.tradingStyle : selectedOption}
           onChange={handleSelectChange}
           options={options}
-          placeholder="Trading Style"
+          placeholder={Signup.TRADING_STYLE}
           styles={selectStyles}
         />
         <Select
           value={formData.tradingExp ? formData.tradingExp : selectedExperience}
           onChange={handleTradingExpChange}
           options={trading_experience}
-          placeholder="Trading Experience"
+          placeholder={Signup.TRADING_EXPERIENCE}
           styles={selectStyles}
         />
       </div>

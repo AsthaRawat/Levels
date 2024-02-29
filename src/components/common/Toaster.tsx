@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ErrorIcon from "../../assets/icons/errorIcon";
 import { ToasterProps } from "../interface/interface";
+import { Signup } from "../enum/enums";
 
 const Toaster: React.FC<ToasterProps> = ({ currentStep, isChecked }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,7 +20,7 @@ const Toaster: React.FC<ToasterProps> = ({ currentStep, isChecked }) => {
         <div className="toaster">
           <div className="toast-message">
             <ErrorIcon />
-            <span> Alias already taken</span>
+            <span>{Signup.ERROR}</span>
           </div>
         </div>
       )}

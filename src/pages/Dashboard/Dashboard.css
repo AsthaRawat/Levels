@@ -1,0 +1,29 @@
+.dashboard-container {
+  background-color: #000;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard {
+  background-color: #403e3e;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.dashboard h1 {
+  text-align: center;
+  color: white;
+}
+
+.dashboard-details {
+  color: white;
+  margin: 2rem;
+  font-size: 18px;
+  font-family: inter;
+  font-weight: 600;
+  display: grid;
+  gap: 10px;
+}

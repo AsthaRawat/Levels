@@ -3,8 +3,7 @@ import {
   validateEmail,
 } from "../../../components/validation/Validation";
 import { Step1Props } from "../../../components/interface/interface";
-
-
+import { Signup } from "../../../components/enum/enums";
 
 const Step1: React.FC<Step1Props> = ({
   formData,
@@ -36,10 +35,10 @@ const Step1: React.FC<Step1Props> = ({
 
   useEffect(() => {
     if (isBoxChecked && checkInput()) {
-      setButtonText?.("Let's Start");
+      setButtonText?.(Signup.LETS_START);
       setButtonClass("auth-button-updated");
     } else {
-      setButtonText?.("Register with Email");
+      setButtonText?.(Signup.REGISTER_WITH_EMAIL);
       setButtonClass("auth-button");
     }
   }, [isBoxChecked, checkInput, setButtonClass, setButtonText]);

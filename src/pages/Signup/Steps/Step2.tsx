@@ -3,6 +3,7 @@ import data from "../../../components/countryCity/countryCity.json";
 import Select from "react-select";
 import { selectStyles } from "../../../components/common/style";
 import { CountryData, Step2Props } from "../../../components/interface/interface";
+import { Signup } from "../../../components/enum/enums";
 
 
 const Step2: React.FC<Step2Props> = ({
@@ -14,14 +15,13 @@ const Step2: React.FC<Step2Props> = ({
     formData.country || ""
   );
   const [cities, setCities] = useState<string[]>([]);
-  const [selectedCity, setSelectedCity] = useState<string>(formData.city || "");
   const [countryOptions, setCountryOptions] = useState<
     { value: string; label: string }[]
   >([]);
 
   const countriesData: CountryData = data;
   useEffect(() => {
-    setButtonText?.("Next");
+    setButtonText?.(Signup.NEXT);
     const countryOptions = Object.keys(countriesData).map((country) => ({
       value: country,
       label: country,
@@ -48,10 +48,8 @@ const Step2: React.FC<Step2Props> = ({
   ) => {
     if (selectedOption) {
       setFormData({ ...formData, city: selectedOption.value });
-      setSelectedCity(selectedOption.value);
     } else {
       setFormData({ ...formData, city: "" });
-      setSelectedCity("");
     }
   };
 
@@ -68,7 +66,7 @@ const Step2: React.FC<Step2Props> = ({
         value={countryValue}
         onChange={handleCountryChange}
         options={countryOptions}
-        placeholder="Your Country"
+        placeholder={Signup.YOUR_COUNTRY}
         styles={selectStyles}
       />
 
@@ -76,7 +74,7 @@ const Step2: React.FC<Step2Props> = ({
         value={cityValue}
         onChange={handleCityChange}
         options={cities.map((city) => ({ value: city, label: city }))}
-        placeholder={selectedCountry ? "Select Region" : "No cities available"}
+        placeholder={selectedCountry ? Signup.SELECT_REGION : Signup.NO_CITY}
         isDisabled={!selectedCountry}
         styles={selectStyles}
       />

@@ -13,6 +13,7 @@ import { AuthLayoutProps } from "../interface/interface";
 import VideoBackground from "../common/BackgroundVideo";
 import { useNavigate } from "react-router-dom";
 import Toaster from "../common/Toaster";
+import { Signup } from "../enum/enums";
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   const [formData, setFormData] = useState({
@@ -77,10 +78,10 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
           <div className="subheading">
             <label>
               {currentStep === 1
-                ? "Signup to Levels"
+                ? Signup.SIGNUP_TO_LEVELS
                 : currentStep === 2
-                ? "Almost there   "
-                : "Welcome to Levels"}
+                ? Signup.ALMOST_THERE
+                : Signup.WELCOME}
             </label>
           </div>
           <div className="input-box">
@@ -94,7 +95,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
                 setButtonClass={setButtonClass}
                 setIsChecked={setIsChecked}
                 isBoxChecked={isBoxChecked}
-                setIsBoxChecked= {setIsBoxChecked}
+                setIsBoxChecked={setIsBoxChecked}
               />
             </div>
           </div>
@@ -103,8 +104,8 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
               <span className="label-tc">
                 <label>
                   <div>
-                    Accept <span className="link"> {` `}T&C</span> and{" "}
-                    <span className="link">Privacy Policy</span>
+                    Accept <span><a href="/terms-condition"  className="link">T&C</a></span> and{' '}
+                    <span><a className="link" href="/privacy-policy">Privacy Policy</a></span>
                   </div>
                   <input type="checkbox" onChange={handleCheckboxChange} />
                   <span className="checkbox"></span>
